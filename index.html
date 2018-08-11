@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+      
+      <form action="index.html" method="post"> <!--Our form won't actually submit data anywhere, but with a server side language like PHP,Ruby, or Python, we could process the data. First we have action attribute with value index.html which is this file. Then we are going to type the method attribute with value post. The action attibute is the web address of a program that processes the information submitted via the form. The method attribrute is the HTTP method that the browsers uses to submit the form. Posible values are POST or GET. POST corresponds to the HTTP POST method. That means that data from the body of the form is sent, or posted, to the server. Get corresponds to the HTTP GET method. In this case, data is sent inside of the URL, and paratmeters are seperated with a question mark.-->
+      
+      
+      
+        <!--Lets make a simple text field where the user can type in their name.-->
+        
+        
+          <h1>Sign up</h1> <!--Here first we provide a header for our form. This isn't required but its going to make our form look nicer.-->
+        
+        
+        
+        <!--In our case, we want to make two groups. One for basic information, and one for the information that will show up on a user's profile, after they've logged into our imaginary app. We can do that by wrapping our form controls in the fieldset element.-->
+        
+        
+        <fieldset> <!--Here we want to wrap this from here-->
+          
+          
+          <legend><span class="number">1</span> Your basic info</legend> <!--Here we are adding legend element for section 1 as of it there steps for the process. We also added a span element and give it a class just incase we use them for css design. Note: Span is like -->
+        
+        
+        
+        
+          <!--We can label each one of our form controls using the label element.-->
+          
+          
+           <label for="name">Name:</label> <!--Here we added a attribute for with value name. With this attribute will help us when we click the label name will automatically focus on this particular formed field. This attribute associates the label with a particular form element. The way it matches is by ID. If you remove this for attribute it wont give you focus. -->
+          
+          <!--Now the user knows what information they should put into each form field.-->
+          
+          <input type="text" id="name" name"user_name"> <!--type attribute and vaue text. The we give it a ID and a value name. Then we give a name attribute with a value of user_name.-->
+          
+          <!--When you save this out you see now that you a have a text area where you can type in your name.Please note: the input element is a self-closing tag. There's no need to type a closing tag to math the opening tag.-->
+          
+          
+          <!--When we created the input element we addded three attributes here. The type attribute indicates what kind of input we want. There are many possible values for this particular attribute, such as email, tel, for telephone, and password. Just check the ones below. The ID attribute is not required, but it's a good idea to add one. This is helpful for targetting elements with CSS or Java Script. However, we'll need ID attributes so that we can associate labels to specific form controls. The name attribute is needed so that, when a form is submittedto server-side code, the server can understand the form data and process the values appropriately. We're going to prefix all our name values with user and an underscore so that it's easier to tell the difference between the name and the ID.-->
+          
+          
+          
+            <!--Basic input elements at the bottom.-->
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" name"user_email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name"user_passowrd">
+            
+          
+          
+          <!--summary: Using different values for type attribute will produce slightly different results.-->
+          
+          
+          
+          
+          <!--Select menus are great if you have lots of options, however, if you have something like 5 or less,its better to use radio buttons.These show you all of options at once but, like select menus, the user can only pick from one of them. Lets say for legal compliance reasons, we need to now if our users are under the age of 13 or if they're 13 or older. So here we are creating a radio buttons.-->
+          
+          <label>Age:</label> 
+          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label> <br> <!--since the two options are inline to each other we have to add a line break element or <br> between them so that one of them will go at the bottom. The type attribute here is radip instead of text for this particular input element.-->
+          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or Older </label> <!--Summary: When you select one of these options, and then try to select another options, you'll see that it deselects the previous option, and the way that it knows to do that is because we have the name attribute exactly the same. So it knows that these two radio buttons are part of the same group. If we were to change the name attribure to something else, if you select one and the other one it will select both options because the browser thinks that these two radio buttons are aprt of different radio button groups.-->
+        
+          <!--Summary: You might still be wondering why we didn't add a for attribute to the age label. If you take a look at out label tag doesn't have a for attribute but we do have a for attribute for under_13 and over_13. The reason that we don't have a for attribute on the age level up there is because there's nothing to associate it with. The one in the input tag has particular labels have an associated radio button, but the label tag is just really justt to label this general area below. -->
+          
+        
+        </fieldset>   <!--And close the wrapping to here.-->
+        
+        
+        
+        <fieldset> <!--Here we want to add a second field set from here-->
+          
+          
+          
+          <legend><span class="number">2</span> Your profile</legend> <!--Same applies here.-->
+        
+          <!--In our sign up form we want to add a text area so that users can type in a short bio about themselves-->
+          
+          
+          <label for="bio">Biography</label>
+          
+          <textarea id="bio" name="user_bio"></textarea> 
+          
+          
+          
+          <!--Summary: The text area allows us to type in multiple lines. The text area element is different from the input element you need to type an opening and closing tag for it to work. In most browsers, a text area is resizable by the user. There are ways to prevent this if you like but I think its better to leave this default behavior unmodified.-->
+          
+          
+          
+          
+          <!--He we want to allow people to select from a predefine list of job roles. If you have 5 or more menus its best to go with a select menu because it saves space.-->
+          
+          <label for="job">Job role:</label> <!--Label for job role-->
+          <select id="job" name="user_job"> <!--Here we use select element. This form element actually needs additional elements inside of it, exactly like an unordered list element. The element we put inside of this select element is called option elements.-->
+          
+            <optgroup label="Web"> <!--We can organize our list into logical groups with the optgroup element. And we use label Web for this section.-->
+              <option value="frontend_developer">Front-End Developer</option> <!--You probably notice that here we are using an attribute called value. Normally when you submit a form to server side code, each form element has an associated value for text inputs and text areas, that value is whatever the user types in to the field. However, since we're creating these predefined options, wee need to specify what the value should look like when it's submitted.-->
+              <option value="php_developer">PHP Developer</option>
+              <option value="python_developer">Python Developer</option>  
+              <option value="rails_developer">Rails Developer</option>  
+              <option value="web_developer">Web Developer</option>  
+              <option value="wordpress_developer">WordPress Developer</option>  
+            </optgroup>  
+              
+            <optgroup label="Mobile"> <!--Same applies here-->
+              <option value="andriod_developer">Android Developer</option>  
+              <option value="ios_developer">iOS Developer</option>  
+              <option value="mobile_developer">Mobile Developer</option>
+            </optgroup>
+            
+            
+            <optgroup label="Business"> <!--Same applies here.-->
+              <option value="business_owner">Business Owner</option>  
+              <option value="freelancer_developer">Freelancer</option>  
+            </optgroup>  
+          
+          </select>
+          
+          
+          
+          
+          <!--Sometimes you might have a group of predefined options, but you want the user to be able to select multiple options and not just not just one of them. That's where check boxes are useful.-->
+          
+          
+          <label>Interest:</label>
+         
+          <input type="checkbox" id="Development" value="interest_Development" name="user_interest"><label class="light" for="Development">Development</label><br> <!--well add a for attribute of development because that matches the ID attribute that we just created. Right after it we'll add a "br" element to break down to the next line because just our radio buttons, we're going to list these out vertically.-->
+          
+          
+          
+          <input type="checkbox" id="Design" value="interest_Design" name="user_interest"><label class="light" for="Design">Design</label><br> <!--Similar for this line as well. The only tthing that change here is the id, value, and for attribute.-->
+          
+          
+         
+          <input type="checkbox" id="Business" value="interest_Business" name="user_interest"><label class="light" for="Business">Business</label><!--For this one we don't need another line break, so we'll remove that.-->
+          
+          
+          
+          <!--Summarry: Very similar to radio buttons, I've used a label for the group and a label for each individual option. The syntax is almost identical because most of the same rules apply. The only real difference here is the type attribute, and it's set to check box instead of radio. This will tell the browser to render checkboxes, and the user can select multiple checkboxes instead of just one of them like with radio buttons.-->
+          
+          
+          
+          
+          </fieldset> <!--Up to here.-->
+        
+        
+        <!--Summary: What this field set elements does is it gives some slight spacing, and some padding and margin adjustments that have been made, based on our fieldsets that we added. These two fieldsets created logical groupings, but it would be nice to label them using legend element-->
+        
+        
+        
+        <!--Here we are going to create a button element.-->
+        
+        <button type="submit">Sign Up</button> <!-- You need a backend programming in order for this button to work.-->
+        
+        
+        <!--Similar to the text area element, buttons are not set closing. They require a opening and closing tag. There are two other types called Reset and Button. The reset type will automatically clear all form adata when it's clicked. The button type has no default behavior, and it's mostly intended to be used in combination with JavaScript. The type we have used here is submit. The default behavior of the submit type is to submit the form and send all the data over the server.-->
+        
+      
+      </form> <!--Note: You cannot have forms element nested inside the form element.-->
+
+      
+      
+    </body>
+</html>
